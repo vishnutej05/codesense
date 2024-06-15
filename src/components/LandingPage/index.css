@@ -1,0 +1,24 @@
+.landDiv {
+  padding: 30px;
+}
+
+.landNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.secondaryDiv {
+  padding: 50px;
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 550px;
+  text-align: center;
+}
+
+.imgThing {
+  height: 290px;
+}

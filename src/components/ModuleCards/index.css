@@ -1,0 +1,56 @@
+.module-card-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.module-title-btn {
+  background-color: white;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.module-title-btn.completed {
+  background-color: #a5d6a7;
+}
+
+.lessons-container {
+  margin-top: 20px;
+}
+
+.lesson-item {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.lesson-title {
+  font-size: 16px;
+}
+
+.lesson-title.completed {
+  color: green;
+}
+
+.lesson-item .MuiCheckbox-root {
+  margin-left: 10px;
+}
+
+.lesson-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.lesson-paper {
+  padding: 20px;
+}

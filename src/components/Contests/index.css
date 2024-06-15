@@ -1,0 +1,108 @@
+/* .contests-div {
+  padding-top: 100px;
+  padding: 80px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.contest-card {
+  padding: 30px;
+  margin: 0px 200px 0px 200px;
+}
+
+.no-ongoing-text {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+.ongoingText {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #7c419f;
+  margin-left: 20px;
+}
+
+.up-on-card {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+} */
+
+/* Default styles for computer screen */
+.contests-div {
+  padding-top: 100px;
+  padding: 80px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.contest-card {
+  padding: 30px;
+  margin: 0px 200px 0px 200px;
+}
+
+.no-ongoing-text {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+.ongoingText {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #7c419f;
+  margin-left: 20px;
+}
+
+.up-on-card {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 768px) {
+  .contests-div {
+    padding: 0px;
+    padding-top: 20px;
+  }
+
+  .ul-contest {
+    padding-left: 5px;
+  }
+
+  .contest-card {
+    padding: 20px;
+    margin: 0px;
+  }
+
+  .no-ongoing-text,
+  .ongoingText {
+    font-size: 20px;
+  }
+
+  .up-on-card {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+}

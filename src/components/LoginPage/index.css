@@ -1,0 +1,24 @@
+/* .main {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginNav {
+  margin-left: 40px;
+  margin-top: 18px;
+} */
+
+.login-page-total-div {
+  padding: 20px;
+}
+
+.login-page-nav {
+  background-color: #7c419f;
+  padding: 10px;
+  border-radius: 40px;
+  padding-left: 25px;
+}
+
+.logoImg {
+  height: 40px;
+}
