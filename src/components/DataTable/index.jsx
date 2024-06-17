@@ -143,12 +143,25 @@ function DataTable({ data }) {
 
   data = data.map((row, index) => ({ ...row, Rank: index + 1 }));
 
+  function handleDownload() {
+    const csvContent =
+      "data:text/csv;charset=utf-8,\uFEFF" + encodeURIComponent(csvData);
+    const link = document.createElement("a");
+    link.setAttribute("href", csvContent);
+    link.setAttribute("download", "data.csv");
+    document.body.appendChild(link);
+    link.click();
+  }
+
   return (
-    <div>
-      <ProtectedRoute csvData = {csvData}/>
+    <div className="bg-container">
+      {/* <ProtectedRoute csvData = {csvData}/> */}
       
       <div className="leaderboard-header">
-        Batch 2026 - Leaderboard
+        <h1 className="ms-auto" >Batch 2026 - Leaderboard</h1>
+        <button className="btn btn-black ms-auto" onClick={handleDownload}>
+          Download CSV
+        </button>
       </div>
 
       <StripedDataGrid
@@ -177,7 +190,7 @@ function DataTable({ data }) {
             borderRight: "1px solid rgba(224, 224, 224, 1)",
           },
           "& .super-app-theme--even": {
-            backgroundColor: "rgba(0, 0, 0, 0.05)", // Grey background for even rows
+            backgroundColor: "rgba(0, 0, 0, 0)", // Grey background for even rows
           },
         }}
       />

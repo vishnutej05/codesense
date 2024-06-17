@@ -6,8 +6,8 @@
 
 .leaderboard-header{
   color: black;
+  margin:20px;
   font-weight:500;
-  font-size:50px;
   display:flex;
   justify-content: center;
 }

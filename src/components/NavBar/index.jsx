@@ -33,15 +33,15 @@
 
     // console.log("recieving "+props.download);
 
-    function handleDownload() {
-      const csvContent =
-        "data:text/csv;charset=utf-8,\uFEFF" + encodeURIComponent(props.download);
-      const link = document.createElement("a");
-      link.setAttribute("href", csvContent);
-      link.setAttribute("download", "data.csv");
-      document.body.appendChild(link);
-      link.click();
-    }
+    // function handleDownload() {
+    //   const csvContent =
+    //     "data:text/csv;charset=utf-8,\uFEFF" + encodeURIComponent(props.download);
+    //   const link = document.createElement("a");
+    //   link.setAttribute("href", csvContent);
+    //   link.setAttribute("download", "data.csv");
+    //   document.body.appendChild(link);
+    //   link.click();
+    // }
 
     return (
       <>
@@ -111,11 +111,11 @@
                       <br/>
                     </NavDropdown.Item>
 
-                    {location.pathname === "/leaderboard" && (
+                    {/* {location.pathname === "/leaderboard" && (
                         <button className="btn btn-primary ms-3" onClick={handleDownload}>
                           Download CSV
                         </button>
-                      )}
+                      )} */}
 
                     {location.pathname !== "/" && (
                       <NavDropdown.Item as={Link} to="/" onClick={logOut}>
