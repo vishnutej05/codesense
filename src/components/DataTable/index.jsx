@@ -2,7 +2,7 @@
 import { DataGrid, gridClasses } from "@mui/x-data-grid";
 import { alpha, styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
-import DataTableNav from "../DataTableNav/index";
+import ProtectedRoute from "../ProtectedRoute";
 import "./index.css";
 
 const ODD_OPACITY = 0.2;
@@ -133,41 +133,23 @@ function convertToCSV(data) {
   return header + "\n" + rows.join("\n");
 }
 
-export default function DataTable({ data }) {
+function DataTable({ data }) {
   const [csvData, setCsvData] = useState("");
 
   // Update CSV data when component receives new data
   useEffect(() => {
     setCsvData(convertToCSV(data));
   }, [data]);
-  data = data.map((row, index) => ({ ...row, Rank: index + 1 }));
 
-  function handleDownload() {
-    const csvContent =
-      "data:text/csv;charset=utf-8,\uFEFF" + encodeURIComponent(csvData);
-    const link = document.createElement("a");
-    link.setAttribute("href", csvContent);
-    link.setAttribute("download", "data.csv");
-    document.body.appendChild(link);
-    link.click();
-  }
+  data = data.map((row, index) => ({ ...row, Rank: index + 1 }));
 
   return (
     <div>
-      <DataTableNav />
-      <div
-        style={{
-          // marginTop: "100px",
-          display: "flex",
-          justifyContent: "center",
-          fontSize: "50px",
-        }}
-      >
+      <ProtectedRoute csvData = {csvData}/>
+      
+      <div className="leaderboard-header">
         Batch 2026 - Leaderboard
       </div>
-      <button className="btn btn-primary ms-3" onClick={handleDownload}>
-        Download CSV
-      </button>
 
       <StripedDataGrid
         rows={data}
@@ -178,20 +160,20 @@ export default function DataTable({ data }) {
         sx={{
           m: 2,
           "& .super-app-theme--header": {
-            fontWeight: "bold",
-            fontSize: "20px",
+            fontSize: "22px",
+            ffontWeight: "bold !important",
             borderRight: "1px solid rgba(224, 224, 224, 1)",
           },
           "& .super-app-theme--cell": {
             display: "flex",
-            fontWeight: "bold",
+            fontWeight: "700",
             fontSize: "18px",
             justifyContent: "center",
             borderRight: "1px solid rgba(224, 224, 224, 1)",
           },
           "& .super-app-theme--name": {
             fontSize: "18px",
-            fontWeight: "bold",
+            fontWeight: "700",
             borderRight: "1px solid rgba(224, 224, 224, 1)",
           },
           "& .super-app-theme--even": {
@@ -202,3 +184,5 @@ export default function DataTable({ data }) {
     </div>
   );
 }
+
+export default DataTable

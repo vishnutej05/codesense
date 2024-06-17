@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import DashBoard from "../DashBoard";
 import HeatMap from "../HeatMap";
-import NavBar from "../NavBar/";
+// import NavBar from "../NavBar/";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -55,7 +55,7 @@ export default function ProfilePage() {
   console.log(dashboardData);
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <section style={{ backgroundColor: "#eee", paddingTop: "50px" }}>
         <MDBContainer className="py-5">
           <MDBRow>

@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { Outlet, useNavigate } from "react-router-dom";
-// import NavBar from "../NavBar";
+import NavBar from "../NavBar";
 
-const ProtectedRoute = () => {
+const ProtectedRoute = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,7 +15,8 @@ const ProtectedRoute = () => {
 
   return (
     <>
-      {/* <NavBar /> */}
+      {/* {console.log("pro   "+props.csvData)} */}
+      <NavBar download = {props.csvData}/>
       <Outlet />
     </>
   );

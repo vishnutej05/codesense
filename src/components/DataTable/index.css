@@ -3,3 +3,11 @@
 * {
   font-family: "Barlow", sans-serif;
 }
+
+.leaderboard-header{
+  color: black;
+  font-weight:500;
+  font-size:50px;
+  display:flex;
+  justify-content: center;
+}
