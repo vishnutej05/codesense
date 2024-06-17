@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import LottieAnimation from "../../components/LottieAnimation"; // Import the component
+import Animation from "../Animation";
 import { Link } from "react-router-dom";
+import NavBar from "../NavBar";
 import {
   MDBContainer,
   MDBCol,
@@ -12,6 +14,7 @@ import {
   MDBCard,
   MDBCardBody,
 } from "mdb-react-ui-kit";
+import { yellow } from "@mui/material/colors";
 
 const LoginPage = () => {
   useEffect(() => {
@@ -68,59 +71,57 @@ const LoginPage = () => {
     navigate("/leaderboard", { replace: true });
   };
 
-  const animationSrc =
-    "https://lottie.host/d01a53d2-5dfb-49be-8dd4-5da9bc887cd2/9qciwN240m.json";
+  // const animationSrc =
+  //   "https://lottie.host/d01a53d2-5dfb-49be-8dd4-5da9bc887cd2/9qciwN240m.json";
+    
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <MDBCard style={{ marginTop: "8%", width: "95%" }}>
+    <>
+    <NavBar/>
+    <div style={{ display: "flex"}}>
+      <MDBCard style={{width: "100%" }}>
         <form onSubmit={submitClicked}>
-          <MDBCardBody style={{ padding: "0" }}>
+          <MDBCardBody style={{ paddingTop: "8%",backgroundColor: "#FBFA92" }}>
             <MDBContainer fluid className=" h-custom">
               <MDBRow>
                 <MDBCol
                   col="10"
                   md="6"
-                  style={{ borderRight: "1px solid black" }}
                 >
                   <div
                     style={{
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
-                      backgroundColor: "white",
                       paddingBottom: "10%",
                     }}
                   >
-                    <LottieAnimation
-                      src={animationSrc}
-                      loop={true}
-                      width={500}
-                      height={500}
-                      autoplay={true}
-                    />
+                  <Animation/>
                   </div>
                 </MDBCol>
 
                 {/* login card */}
-                <MDBCol col="4" md="6" style={{ backgroundColor: "#F5E1FF" }}>
+
+                <MDBCol col="4" md="6" >
                   <div style={{ padding: "5%" }}>
-                    <h2 className="fw-bold mb-5 mt-5 text-center">Sign in</h2>
+                    <h2 className="fw-bold mb-5 text-start">Log In</h2>
 
                     <MDBInput
-                      wrapperClass="mb-4 w-70"
+                      wrapperClass="mb-4 "
                       label="Username"
                       id="formControlLg"
                       type="text"
                       size="lg"
-                      style={{ backgroundColor: "white" }}
+                      className="input-boxes"
+                      style={{ backgroundColor: "white" }}  
                       onChange={(e) => setRollno(e.target.value)}
                     />
                     <MDBInput
-                      wrapperClass="mb-4 w-70"
+                      wrapperClass="mb-4 "
                       label="Password"
                       id="formControlLg"
                       type="password"
                       size="lg"
+                      className="input-boxes"
                       style={{ backgroundColor: "white" }}
                       onChange={(e) => setPass(e.target.value)}
                     />
@@ -142,9 +143,7 @@ const LoginPage = () => {
 
                         <MDBBtn type="submit">Login</MDBBtn>
 
-                        <hr className="my-4" />
-
-                        <p className="small mb-3 pb-lg-2">
+                        <p className="mb-3 pb-lg-2">
                           <Link className="text-black-50" to="/forgot">
                             Forgot Password?
                           </Link>
@@ -158,7 +157,9 @@ const LoginPage = () => {
           </MDBCardBody>
         </form>
       </MDBCard>
+      
     </div>
+    </>
   );
 };
 

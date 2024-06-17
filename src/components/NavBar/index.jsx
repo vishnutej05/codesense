@@ -12,19 +12,14 @@
   import { useEffect } from "react";
   import { useNavigate } from "react-router-dom";
 
+import './index.css'
+
   function NavBar(props) {
 
     const navigate = useNavigate();
     const location = useLocation();
 
     const isLoggedIn = Cookies.get("jwtToken") !== undefined;
-
-    useEffect(() => {
-      const jwtToken = Cookies.get("jwtToken");
-      if (jwtToken === undefined) {
-        navigate("/", { replace: true });
-      }
-    });
 
     const logOut = () => {
       Cookies.remove("jwtToken");
@@ -45,6 +40,19 @@
 
     return (
       <>
+
+        {location.pathname === "/login" && (
+            <div className="bg-container ps-4 pe-4">  
+              <Navbar.Brand>
+                Code Sense
+              </Navbar.Brand>
+              <img src = "/assets/MLRIT.png" alt = "MLRIT" className="logo ms-auto me-auto"/>
+              <h3 className="pt-2">-</h3>
+            </div>
+         )}    
+
+        {isLoggedIn && (
+        <>
         <Navbar
           className="bg-purple sticky"
           variant="dark"
@@ -52,82 +60,75 @@
           // fixed="top"
         >
           <Container fluid>
+            
+          
             <Navbar.Brand as={Link} to="/leaderboard">
               Code Sense
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav
-                className="ms-auto me-auto"
-                style={{ gap: "7vw", fontSize: "1.1rem" }}
-              >
-                <Nav.Link as={Link} to="/leaderboard" className="text-white">
-                  <div style={{ textAlign: "center" }}>
-                    <MdLeaderboard />
-                    <br />
-                    <div>Leaderboard</div>
-                  </div>
-                </Nav.Link>
-                <Nav.Link as={Link} to="/courses" className="text-white">
-                  <div style={{ textAlign: "center" }}>
-                    <IoBookOutline />
-                    <br />
-                    <div>Courses</div>
-                  </div>
-                </Nav.Link>
-                <Nav.Link as={Link} to="/jobs" className="text-white">
-                  <div style={{ textAlign: "center" }}>
-                    <MdWork />
-                    <br />
-                    <div>Jobs</div>
-                  </div>
-                </Nav.Link>
-                <Nav.Link as={Link} to="/contests" className="text-white">
-                  <div style={{ textAlign: "center" }}>
-                    <FaLaptopCode />
-                    <br />
-                    <div>Contests</div>
-                  </div>
-                </Nav.Link>
-              </Nav>
-              {isLoggedIn && (
+            
+            <Navbar.Toggle aria-controls="basic-navbar-nav" /><Navbar.Collapse id="basic-navbar-nav">
+                <Nav
+                  className="ms-auto me-auto"
+                  style={{ gap: "7vw", fontSize: "1.1rem" }}
+                >
+                  <Nav.Link as={Link} to="/leaderboard" className="text-white">
+                    <div style={{ textAlign: "center" }}>
+                      <MdLeaderboard />
+                      <br />
+                      <div>Leaderboard</div>
+                    </div>
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/courses" className="text-white">
+                    <div style={{ textAlign: "center" }}>
+                      <IoBookOutline />
+                      <br />
+                      <div>Courses</div>
+                    </div>
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/jobs" className="text-white">
+                    <div style={{ textAlign: "center" }}>
+                      <MdWork />
+                      <br />
+                      <div>Jobs</div>
+                    </div>
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/contests" className="text-white">
+                    <div style={{ textAlign: "center" }}>
+                      <FaLaptopCode />
+                      <br />
+                      <div>Contests</div>
+                    </div>
+                  </Nav.Link>
+                </Nav>
+                {/* {isLoggedIn && ( */}
                 <Nav>
                   <NavDropdown
                     id="nav-dropdown-dark-example"
                     title={<FaUser />}
-                    menuVariant="light"
+                    menuVariant="dark"
                     align="end"
                   >
                     <NavDropdown.Item as={Link} to="/profile">
                       <Image
                         roundedCircle
                         style={{
-                          width: "30px",
-                          height: "30px",
+                          width: "40px",
+                          height: "40px",
                           marginRight: "10px",
-                        }}
-                      />
+                        }} />
                       My Profile
-                      <br/>
+                      <br />
                     </NavDropdown.Item>
-
-                    {/* {location.pathname === "/leaderboard" && (
-                        <button className="btn btn-primary ms-3" onClick={handleDownload}>
-                          Download CSV
-                        </button>
-                      )} */}
-
-                    {location.pathname !== "/" && (
                       <NavDropdown.Item as={Link} to="/" onClick={logOut}>
                         LogOut
                       </NavDropdown.Item>
-                    )}
                   </NavDropdown>
                 </Nav>
-              )}
-            </Navbar.Collapse>
+              </Navbar.Collapse>
           </Container>
         </Navbar>
+        </>
+      )}
       </>
     );
   }

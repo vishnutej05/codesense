@@ -2,10 +2,10 @@
 
 $custom-colors1: (
   "purple": black,
-);
+);  
 
 $custom-colors2: (
-  "white": white,
+  "white": rgb(206, 134, 0),
 );
 
 @each $color-name, $color-value in $custom-colors1 {

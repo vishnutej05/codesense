@@ -40,7 +40,7 @@ function CourseList() {
           marginTop: "40px",
           marginBottom: "30px",
           fontSize: "40px",
-          color: "purple",
+          color: "black",
         }}
       >
         My Courses

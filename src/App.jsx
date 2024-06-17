@@ -10,7 +10,7 @@ import Contests from "./components/Contests";
 import JobsPage from "./components/JobsPage";
 import Forgot from "./components/Forgot";
 import Personal from "./components/Personal";
-import AllCourses from "./components/Course";
+// import AllCourses from "./components/Course";
 import LandingPage from "./components/LandingPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ModulesPage from "./components/ModulesPage";

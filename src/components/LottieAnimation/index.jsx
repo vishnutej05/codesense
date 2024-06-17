@@ -8,6 +8,7 @@ const LottieAnimation = ({
   loop = true,
   autoplay = true,
   speed = 1,
+  color = "#fbfa92", // Default color (black) if not provided
 }) => {
   // Ensure the script is loaded only once
   const [scriptLoaded, setScriptLoaded] = React.useState(false);
@@ -34,6 +35,7 @@ const LottieAnimation = ({
           speed={speed}
           loop={loop}
           autoplay={autoplay}
+          color={color} // Pass the color prop to dotlottie-player
         />
       )}
     </div>

@@ -21,7 +21,7 @@ export default function CourseCard({ course }) {
         variant="outlined"
         sx={{
           borderWidth: 3,
-          borderColor: "purple",
+          borderColor: "grey",
           width: 350,
           height: 250,
         }}
