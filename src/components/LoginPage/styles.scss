@@ -1,0 +1,13 @@
+// styles.scss
+.input-boxes {
+    color:black;
+    background-color: white !important;
+  }
+  
+  .input-boxes input {
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important; // to remove any shadow that might appear on focus
+    }
+  }
+  

@@ -42,12 +42,10 @@ import './index.css'
       <>
 
         {location.pathname === "/login" && (
-            <div className="bg-container ps-4 pe-4">  
-              <Navbar.Brand>
-                Code Sense
-              </Navbar.Brand>
-              <img src = "/assets/MLRIT.png" alt = "MLRIT" className="logo ms-auto me-auto"/>
-              <h3 className="pt-2">-</h3>
+            <div className="bg-container shadow ps-4 pe-4 p-2">  
+              <img src = "/assets/Logo.png" className="logo"/>
+              <img src = "/assets/MLRIT.png" alt = "MLRIT" className="logo text-center"/>
+              {/* <h1 className="pt-2">Contact Us</h1> */}
             </div>
          )}    
 

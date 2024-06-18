@@ -1,11 +1,10 @@
 .bg-container{
   background-color: black;
   color: white;
-  height: 70px;
+  height: 80px;
   display: flex;
   justify-content: space-between; 
-  font-size: 30px;
-  padding:10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* This adds the shadow */
 }
 
 .logo{
