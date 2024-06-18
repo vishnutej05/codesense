@@ -11,7 +11,7 @@ import JobsPage from "./components/JobsPage";
 import Forgot from "./components/Forgot";
 import Personal from "./components/Personal";
 // import AllCourses from "./components/Course";
-import LandingPage from "./components/LandingPage";
+// import LandingPage from "./components/LandingPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ModulesPage from "./components/ModulesPage";
 import LessonContent from "./components/LessonContent";
@@ -61,8 +61,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<LandingPage />} />
-        <Route exact path="/login" element={<LoginPage />} />
+        {/* <Route exact path="/" element={<LandingPage />} /> */}
+{/*do not change the route below to "/" as it is bwing used in navbar as "/login"*/}
+        <Route exact path="/login" element={<LoginPage />} /> 
         <Route exact path="/forgot" element={<Forgot />} />
         <Route element={<ProtectedRoute />}>
           <Route exact path="/courses" element={<CourseList />} />
