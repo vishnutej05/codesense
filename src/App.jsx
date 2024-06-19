@@ -63,7 +63,7 @@ const App = () => {
       <Routes>
         {/* <Route exact path="/" element={<LandingPage />} /> */}
 {/*do not change the route below to "/" as it is bwing used in navbar as "/login"*/}
-        <Route exact path="/login" element={<LoginPage />} /> 
+        <Route exact path="/" element={<LoginPage />} /> 
         <Route exact path="/forgot" element={<Forgot />} />
         <Route element={<ProtectedRoute />}>
           <Route exact path="/courses" element={<CourseList />} />

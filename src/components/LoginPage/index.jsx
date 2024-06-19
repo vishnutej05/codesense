@@ -18,7 +18,6 @@ import {
   MDBCard,
   MDBCardBody,
   MDBFooter,
-  MDBCheckbox,
   MDBIcon
 } from "mdb-react-ui-kit";
 
@@ -159,9 +158,6 @@ const LoginPage = () => {
                             </a>
                           </p>
                         </div>
-
-                        
-
 
                           <MDBBtn type="submit" className="btn wide-btn">Login</MDBBtn>
 

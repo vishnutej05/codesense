@@ -9,7 +9,7 @@
   import { Link, useLocation } from "react-router-dom";
   import Cookies from "js-cookie";
   import { FaLaptopCode } from "react-icons/fa6";
-  import { useEffect } from "react";
+  // import { useEffect } from "react";
   import { useNavigate } from "react-router-dom";
 
 import './index.css'
@@ -26,22 +26,10 @@ import './index.css'
       navigate("/", { replace: true });
     };
 
-    // console.log("recieving "+props.download);
-
-    // function handleDownload() {
-    //   const csvContent =
-    //     "data:text/csv;charset=utf-8,\uFEFF" + encodeURIComponent(props.download);
-    //   const link = document.createElement("a");
-    //   link.setAttribute("href", csvContent);
-    //   link.setAttribute("download", "data.csv");
-    //   document.body.appendChild(link);
-    //   link.click();
-    // }
-
     return (
       <>
 
-        {location.pathname === "/login" && (
+        {location.pathname === "/" || location.pathname === "/forgot" && (
             <div className="bg-container shadow ps-4 pe-4 p-2">  
               <img src = "/assets/Logo.png" className="logo"/>
               <img src = "/assets/MLRIT.png" alt = "MLRIT" className="logo text-center"/>

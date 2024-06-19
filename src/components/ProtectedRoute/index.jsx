@@ -9,7 +9,7 @@ const ProtectedRoute = (props) => {
   useEffect(() => {
     const jwtToken = Cookies.get("jwtToken");
     if (jwtToken === undefined) {
-      navigate("/", { replace: true });
+      navigate("/leaderboard", { replace: true });
     }
   });
 

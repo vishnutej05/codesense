@@ -1,0 +1,12 @@
+.wide-btn {
+    width: 100%; 
+    background-color: black;
+    color: white;
+    height: 48px;
+    font-size: 20px;
+    margin-bottom: 10px; 
+  }
+  
+  .wide-btn:hover{
+    background-color: rgb(50, 48, 48);
+  }

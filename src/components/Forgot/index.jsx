@@ -1,6 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
+import NavBar from "../NavBar";
+import './index.css'
+import {
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBBtn,
+  MDBInput,
+  MDBCard,
+  MDBCardBody,
+  MDBFooter,
+  MDBIcon
+} from "mdb-react-ui-kit";
 
 const Forgot = () => {
   const navigate = useNavigate();
@@ -42,7 +55,7 @@ const Forgot = () => {
 
     try {
       const res = await fetch(
-        "https://scoretracking-vishnu.onrender.com/sendotp",
+        "http://localhost:8800/sendotp",
         options
       );
 
@@ -71,7 +84,7 @@ const Forgot = () => {
       };
       try {
         const res = await fetch(
-          "https://scoretracking-vishnu.onrender.com/getcreds",
+          "http://localhost:8800/getcreds",
           options
         );
 
@@ -85,43 +98,86 @@ const Forgot = () => {
       } catch (error) {
         console.error("Error:", error);
       }
-      console.log("OTP verification successful");
+      console.log("OTP verification successful", data);
     } else {
       setVerificationError("Invalid OTP. Please try again.");
     }
   };
 
   return (
-    <div>
-      <form style={{ paddingTop: "100px" }} onSubmit={submitClicked}>
-        <h1>Forgot Credentials</h1>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-        />
-        <button type="submit">Send OTP</button>
-      </form>
+  <>
+    <NavBar></NavBar>
+      <div style = {{ height : "100vh",backgroundColor:"#8C52FF", paddingTop:"10%"}} className="d-flex justify-content-center ">
+        {!otpSent && (
+        <form onSubmit={submitClicked}>
+        <MDBCard>
+        <MDBCardBody style={{ paddingTop: "8%",backgroundColor: "#8C52FF" }}>
+          <MDBContainer fluid className=" h-custom">
+            <MDBRow>
+              <MDBCol md="5"style = {{width:"100%"}} className="text-center">
+              <h1 className="mb-3" style={{ fontSize:"40px", color:"black" }}>
+                Forgot Credentials
+              </h1>
 
-      {otpSent && (
-        <div style={{ paddingTop: "100px" }}>
-          <h2>Enter OTP</h2>
-          <input
-            type="text"
-            value={enteredOTP}
-            onChange={(e) => setEnteredOTP(e.target.value)}
-            placeholder="Enter OTP"
-          />
-          <button onClick={verifyOTP}>Get Credentials</button>
-          {verificationError && (
-            <p style={{ paddingTop: "100px" }}>{verificationError}</p>
-          )}
-          {setOtpSent && <p style={{ paddingTop: "100px" }}>{data}</p>}
-        </div>
-      )}
-    </div>
+              <MDBInput
+                label="Enter your email"
+                id="formControlLg"
+                size="lg"
+                style={{ backgroundColor: "white" }}
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+              />
+
+              <MDBBtn type="submit" className="btn wide-btn mt-3">Get OTP</MDBBtn>
+            </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+        </MDBCardBody>
+        </MDBCard>
+        </form>
+        )}
+        {otpSent && (
+          <MDBCard>
+          <MDBCardBody style={{backgroundColor: "#8C52FF" }}>
+            <MDBContainer fluid className=" h-custom">
+              <MDBRow>
+                <MDBCol md="5" style = {{width:"100%"}} className="text-center">
+                {/* <div style={{ paddingTop: "100px" }}> */}
+                  <h1 className="mb-3 text-start" style={{ fontSize:"40px", color:"black" }}>
+                    Enter OTP
+                  </h1> 
+                  <MDBInput
+                  label="Enter your email"
+                  id="formControlLg"
+                  size="lg"
+                  style={{ backgroundColor: "white" }}
+                  type="text"
+                  value={enteredOTP}
+                  onChange={(e) => setEnteredOTP(e.target.value)}
+                  placeholder="Enter OTP"
+                />
+
+                <MDBBtn onClick={verifyOTP} className="btn wide-btn">Login</MDBBtn>
+                  {verificationError && (
+                    <p style={{ paddingTop: "100px" }}>{verificationError}</p>
+                  )}
+                  {setOtpSent && 
+                    <p style={{fontSize:"40px", color:"black"}} className="text-center">{data.password}</p>
+                    // api call to send userid pass to mail 
+                  }
+                {/* </div> */}
+              </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBCardBody>
+          </MDBCard>
+          
+        )}
+      </div>
+    </>
   );
-};
+}
 
 export default Forgot;
