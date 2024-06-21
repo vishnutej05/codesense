@@ -222,10 +222,10 @@ function Personal() {
   };
 
   return (
-    <div style={{ backgroundColor: "#F5E1FF" }}>
+    <div>
       <MDBContainer fluid>
         <MDBRow className="d-flex my-5">
-          <MDBCol lg="5" className="my-5">
+          <MDBCol lg="5">
             <MDBCard
               className="my-20"
               style={{
@@ -373,7 +373,7 @@ function Personal() {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="7" className="my-5">
+          <MDBCol lg="7" className="">
             <MDBCard
               style={{
                 borderRadius: "1.2rem",

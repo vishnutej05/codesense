@@ -6,7 +6,7 @@
 
 .leaderboard-header{
   color: black;
-  margin:20px;
+  padding:20px;
   font-weight:500;
   display:flex;
   justify-content: center;

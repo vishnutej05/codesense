@@ -191,7 +191,7 @@ const LoginPage = () => {
             <MDBRow className="companies text-center">
               <MDBCol className="ms-auto me-auto">
               <p className="header">TOP COMPANIES</p>
-              <img src = "/assets/faang.png" className="fang-logo"/>
+              <img src = "/assets/faang-2.png" className="fang-logo"/>
               <p className="desc">These are top companies of the world not our rerecruiters manaki andtha scene ledu modda</p>
               </MDBCol>
             </MDBRow>

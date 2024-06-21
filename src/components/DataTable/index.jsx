@@ -2,7 +2,6 @@
 import { DataGrid, gridClasses } from "@mui/x-data-grid";
 import { alpha, styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
-import ProtectedRoute from "../ProtectedRoute";
 import "./index.css";
 
 const ODD_OPACITY = 0.2;
@@ -133,14 +132,13 @@ function convertToCSV(data) {
   return header + "\n" + rows.join("\n");
 }
 
-function DataTable({ data }) {
+export default function DataTable({ data }) {
   const [csvData, setCsvData] = useState("");
 
   // Update CSV data when component receives new data
   useEffect(() => {
     setCsvData(convertToCSV(data));
   }, [data]);
-
   data = data.map((row, index) => ({ ...row, Rank: index + 1 }));
 
   function handleDownload() {
@@ -154,12 +152,10 @@ function DataTable({ data }) {
   }
 
   return (
-    <div className="bg-container">
-      {/* <ProtectedRoute csvData = {csvData}/> */}
-      
+    <div>
       <div className="leaderboard-header">
         <h1 className="ms-auto" >Batch 2026 - Leaderboard</h1>
-        <button className="btn btn-black ms-auto" onClick={handleDownload}>
+        <button className="btn btn-dark ms-auto mb-2" onClick={handleDownload}>
           Download CSV
         </button>
       </div>
@@ -173,29 +169,27 @@ function DataTable({ data }) {
         sx={{
           m: 2,
           "& .super-app-theme--header": {
-            fontSize: "22px",
-            ffontWeight: "bold !important",
+            fontWeight: "bold",
+            fontSize: "20px",
             borderRight: "1px solid rgba(224, 224, 224, 1)",
           },
           "& .super-app-theme--cell": {
             display: "flex",
-            fontWeight: "700",
+            fontWeight: "bold",
             fontSize: "18px",
             justifyContent: "center",
             borderRight: "1px solid rgba(224, 224, 224, 1)",
           },
           "& .super-app-theme--name": {
             fontSize: "18px",
-            fontWeight: "700",
+            fontWeight: "bold",
             borderRight: "1px solid rgba(224, 224, 224, 1)",
           },
           "& .super-app-theme--even": {
-            backgroundColor: "rgba(0, 0, 0, 0)", // Grey background for even rows
+            backgroundColor: "rgba(0, 0, 0, 0.05)", // Grey background for even rows
           },
         }}
       />
     </div>
   );
 }
-
-export default DataTable

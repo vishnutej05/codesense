@@ -29,7 +29,7 @@ import './index.css'
     return (
       <>
 
-        {location.pathname === "/" || location.pathname === "/forgot" && (
+        {(location.pathname === "/" || location.pathname === "/forgot") && (
             <div className="bg-container shadow ps-4 pe-4 p-2">  
               <img src = "/assets/Logo.png" className="logo"/>
               <img src = "/assets/MLRIT.png" alt = "MLRIT" className="logo text-center"/>
@@ -104,6 +104,9 @@ import './index.css'
                         }} />
                       My Profile
                       <br />
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/personal">
+                      Edit my profile
                     </NavDropdown.Item>
                       <NavDropdown.Item as={Link} to="/" onClick={logOut}>
                         LogOut
